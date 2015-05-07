@@ -1,0 +1,24 @@
+Powers of 2
+0 -> 1     6 64      20 ~ 1000000
+1 -> 2     7 128     30 ~ 1000000000
+2 -> 4     8 256
+3 8        9 512
+4 16      10 1024
+5 32
+
+Trickier data structures
+Binary tree: at most 2 children, not ordered unless SEARCH tree. Prune things.
+Hash table : "linear probing" aka "open addressing" and "separate chaining" aka "closed addressing". 
+           : load factor = n / #buckets
+           : load factor ~ .75 is reasonable trade-off
+           : linear probing has fewer missed than chaining up until load ~ 0.8, when it gets much much worse.
+Binary heap: every node is greater than or equal to its children (or less than or equal to in reverse heap).
+           : "binary" b/c binary tree
+           : Insert & delete O(log(n))
+	   : Insert == add to bottom and swap up until order is good
+           : Delete == swap top with bottom, sink new top until order is good.
+	   : Implementation: array where each n's children are at 2n+1 and 2n+2
+
+Trickier sorts
+Merge: depth-first. Dig to smallest bits, sort smallest bits, then merge the bigger bits on up.
+Quick: breadth-first. Order the halves, then order the halves of the halves, all the way down. 
