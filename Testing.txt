@@ -1,0 +1,51 @@
+Testing (Notes from Cracking the Coding Interview, ch. 12).
+
+Rule #1: expect abusive input
+
+What reviewer is looking for:
+  1. Good list of test cases
+  2. Big picture understanding: What are the most important things to test? 
+     What's the core functionality of this product that must not break?
+  3. Ecosystem. Fit the application into the larger world of other programs
+     and common tasks (email, sharing, etc) and make sure to check those.
+  4. Organized. Instead of just spouting off test cases, break them down
+     into categories. "badly formatted input" and "connectivity" are two
+     general ones I can think of, but use this as an opportunity to show
+     that you understand how the software works, what the main tasks are,
+     and how they can go wrong.
+  5. Practical. Are you testing strategies feasible to implement? Like actual
+     debugging, not "reinstall it" or "write it all again, but better"
+  
+Categories of questions
+
+* Testing a real world object:
+Who (users), 
+How (use cases), 
+Bounds (including environental), 
+Stress (when should it break and how), 
+Strategy (practical testing)
+
+* Testing software
+- Same as real world, plus the following
+- Automated vs. manual: advantages and disadvantages
+- White Box Testing: Unit tests, any kind of test where you have access to
+                     individual functions
+- Black Box Testing: testing the software as a whole.
+- Always remember to break it down, don't rattle stuff off.
+
+* Testing a function
+Test cases:
+- Try to ask at least one question before you start, just to show
+  you're paying attention. Find some kind of assumption to ask about.
+- Normal input
+- Extreme input
+- Null and out of bounds input
+- Strange input (i.e. an already sorted array for a sorting function).
+Verify output:
+- Check for undesired side-effects as well as correctness
+
+* Troubleshooting specific issues (debugging)
+- Scenario: when, how often, which version, error report?
+- Organize: list out lifecycle of program, iterate though to determine 
+            failure point.
+- Lay out how you'd actually do it.
