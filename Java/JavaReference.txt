@@ -1,0 +1,91 @@
+--- Basic Declarations ---
+
+public class MyClassName {
+   private Type iVar1;
+   private Type iVar2;
+
+   public MyClassName(Type arg1, Type arg2) {
+      iVar1 = arg1;
+      iVar2 = arg2;
+   }
+
+   public returnType publicMethod(Type arg) {
+      return returnType;
+   }
+
+   // It appearts to be Java convention to use private backers with explicit
+   // public setters and getters
+   public Type getiVar1 {
+      return iVar1;
+   }
+
+   public void setiVar1(Type newValue) {
+      iVar1 = newValue;
+   }
+
+   // Etc.
+}
+
+--- Access Modifiers ---
+Class Level:
+public: visible to all classes anywhere
+package-private (no modifier): visible only within its package
+
+Member Level:
+public: Visible to all classes anywhere
+private: Can only be accessed in its own class
+protected: package-private, plus visible to subclasses in other packages
+package-private (no modifier): visible only within its package
+
+RULE OF THUMB: Choose private unless you have a good reason not to, especially for fields (aka ivars)
+
+--- STATIC and Class Members ---
+static modifier makes anything, variable or method, associated with the class instead of any instance.
+** Biggest gotcha: class methods can't use `this` or access ivars without the help of an object.
+
+Example:
+
+public class Bicycle {
+   private int cadence;
+   private int gear;
+   private int speed;
+   private int id;
+
+   // Increments with every bicycle made
+   private static int numberOfBicycles;
+
+   public Bicycle(int startCadence, int startGear, int startSpeed) {
+      cadence = startCadence;
+      gear = startGear;
+      speed = startSpeed;
+      id = ++numberOfBicycles; // Gives each bike a unique ID.
+   }
+   
+   // Gives public access to the private static variable.
+   public static int getNumberOfBicycles {
+      return numberOfBicycles;
+   }
+}
+
+--- Misc other modifiers ---
+final: makes something constant. NAME_LIKE_THIS. If value known at compile-time, compile time constant.
+
+--- Initializing Fields ---
+static initialization blocks: static { initialize static variables; }. Used to initialize class variables
+                              when more than simple assignment is required. As many as you want, run in order
+                              listed. Just making a private static method is more readable and reusable.
+
+initialization blocks: { initialize normal variables; }. Copied into every constructor.
+final methods: don't use normal methods for ivar initialization. Use constructors or final methods.
+
+--- Terminology as Distinct from Objective-C ---
+   obj-c         Java
+"property"      "field"
+"message"       "method"
+"initializer"   "constructor"
+
+--- Garbage Collection ---
+Objects are deallocated automatically when the program has no more references to them. Can remove references by
+setting object to nil.
+
+

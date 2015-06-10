@@ -1,0 +1,59 @@
+Common Sorts:
+1. Bubble Sort
+   Repeatedly scan through array till sorted
+   if array[i] > array[i + 1], swap i and i+1
+   while (!array.isSorted()) {
+      for (int i = 0; i < array.length - 1; i++) {
+         if (array[i] > array[i + 1]) {
+            swap(array, i, i + 1);
+         }
+      }
+   }
+
+2. Selection Sort
+   Scan through for smallest element, swap it to front.
+   Scan through for second smallest element, swap it to front+1, etc.
+   for (int i = 0; i < array.length - 1; i++) {
+      int smallestIndex;
+      for (int j = i; j < array.length; j++) {
+         if (j == i) {
+	    smallestIndex = array[j];
+	    continue;
+     	 }
+	 if (array[i] < array[smallestIndex]) {
+            smallestIndex = array[i];
+         }
+      }
+      swap(array, i, smallestIndex);
+   }
+
+3. Insertion Sort
+   For each item in the array, swap it back as long as it is smaller than the previous element.
+   Advantages: in-place, stable, online, adaptive (i.e. benefits from pre-sorted data)
+               Most efficient of the simple N2 sorts, especially on very small datasets.
+   for (int i = 0; i < array.length - 1; i++) {
+      for (int j = i + 1; j > 0; j--) {
+         if (array[j] < array[j - 1]) {
+            continue;
+         }
+         swap(array, j, j - 1);
+      }
+   }   
+   
+
+4. Mergesort: O(nlogn) worst and average case, N^2 memory
+5. Quicksort: O(nlogn) best, O(n^2) worst case. log(n) (stack space)
+6. Radix sort: O(kn), where k is the number of passes through the array
+               Takes advantage of elements with a limited range of values (like ints or chars)
+               to break the best-case sorting barrier of comparison sorts. (n log n)
+
+
+Searching techniques:
+1. Binary search
+2. Organize into a binary tree, then DFS or BFS. Good when order matters, or when you want to search for a range.
+3. Add them to a hash table. (good for keys in a wide range of values where order doesn't matter 
+   (like ISBNs)
+
+preorder: visit, search left, search right
+inorder: search left, visit, search right
+postorder: search left, search right, visit.
